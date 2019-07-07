@@ -1,4 +1,8 @@
 <!-- Frank Stein Edits -->
+<!--
+Create a table called `find_spaces`
+find Screenshot in screenshot folder
+-->
 <!DOCTYPE html>
 <html>
 
@@ -16,11 +20,37 @@
 
     mysqli_select_db($con, "find_spaces");
 
+
+    // Category filter
+    $category = substr($q, 0, 1);
+    $filter = substr($q, 1);
+
     // first filter based on filter name (_only event_type..now)
-     if ($q == "All") {
+     if ($q == "1All") {
         $sql = "SELECT * FROM find_spaces";
     } else {
-        $sql = "SELECT * FROM find_spaces WHERE NAME_ LIKE '" . $q . "'";
+        switch(intval($category)){
+            case 1:
+                $sql = "SELECT * FROM find_spaces WHERE NAME_ LIKE '".$filter."'";
+                break;
+            case 2:
+                $range = explode("-", $filter);
+                $sql = "SELECT * FROM find_spaces WHERE PRICING BETWEEN '".$range[0]."' AND '".$range[1]."'";
+                break;
+            case 3:
+                $sql = "SELECT * FROM find_spaces WHERE VENUE_TYPE LIKE '" . $filter . "'";
+                break;
+            case 4:
+                $sql = "SELECT * FROM find_spaces WHERE LOCATION_ LIKE '" . $filter."'";
+                break;
+            case 5:
+                $range = explode("-", $filter);
+                $sql = "SELECT * FROM find_spaces WHERE MAX_CAPACITY BETWEEN '" . $range[0] . "' AND '" . $range[1] . "'";
+                break;
+            default:
+                $sql = "SELECT * FROM find_spaces";
+        }
+        
     }
 
 
@@ -41,6 +71,7 @@
     }
 
     echo "<div id='events_showing'>";
+    // index counter
     echo "<p>" . $total_rows . " out of 50 showing</p></div>";
     echo '<div class="row col-sm-12"  id="spaces_listing">';
 
