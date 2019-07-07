@@ -6,17 +6,11 @@ include 'includes/navigation.php';
 
 <head>
     <script>
+        // function uses ajax to communicate with the php file and pass the filter variable
         function showUser(str) {
-            // if (str == "") {
-            //     document.getElementById("spaces_listing").innerHTML = "";
-
-            //     return;
-            // } else {
             if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
             } else {
-                // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange = function() {
@@ -26,7 +20,6 @@ include 'includes/navigation.php';
             };
             xmlhttp.open("GET", "php/spaces.php?q=" + str, true);
             xmlhttp.send();
-            // }
         }
         showUser("All");
     </script>
@@ -163,75 +156,6 @@ include 'includes/navigation.php';
     </nav>
 </div>
 
-<!-- <div class="mt-2">
-    <nav class="navbar navbar-expand-lg  navbar-light text-dark" id="filter_nav">
-        <a href="#" class="navbar-brand">Filters</a>
-
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" aria-expanded="false" data-target="#Filter" id="filter_btn"><span class="navbar-toggler-icon"></span></button>
-
-        <div id="Filter" class="navbar navbar-collapse navbar-toggleable-xs">
-            <ul class="nav navbar-nav">
-                <li class="nav-item" style="margin: 5px;">
-                    <form>
-                        <select class="mdb-select md-form" name="users" onchange="showUser(this.value)">
-                            <option value="">Select an Event:</option>
-                            <option value="1">WEDDING</option>
-                            <option value="2">LAUNCH</option>
-                        </select>
-                    </form>
-                </li>
-                <li class="nav-item" style="margin: 5px;">
-                    <form>
-                        <select name="users" onchange="showUser(this.value)">
-                            <option value="">Select an Event:</option>
-                            <option value="1">WEDDING</option>
-                            <option value="2">LAUNCH</option>
-                        </select>
-                    </form>
-                </li>
-
-                <li class="nav-item" style="margin: 5px;">
-                    <form>
-                        <select name="users" onchange="showUser(this.value)">
-                            <option value="">Select an Event:</option>
-                            <option value="1">WEDDING</option>
-                            <option value="2">LAUNCH</option>
-                        </select>
-                    </form>
-                </li>
-                <li class="nav-item" style="margin: 5px">
-                    <div class="btn-group">
-                        <button class="btn">Please Select From List</button>
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                            <li><a tabindex="-1" href="#">Item I</a></li>
-                            <li><a tabindex="-1" href="#">Item II</a></li>
-                            <li><a tabindex="-1" href="#">Item III</a></li>
-                            <li class="divider"></li>
-                            <li><a tabindex="-1" href="#">Other</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item" style="margin: 5px;">
-                    <div class="dropdown" id="options">
-                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span id="selected">Choose option</span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Wedding</a></li>
-                            <li><a href="#">Launcher</a></li>
-                            <li><a href="#">Party</a></li>
-                            <li><a href="#">Workshop</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <ul>
-        </div>
-    </nav>
-</div> -->
-
 <div id="events"></div>
 
 <footer style="float: bottom;" class="mt-5">&copy; Copyright 2018-2019 Pataspace </footer>
@@ -242,6 +166,7 @@ include 'includes/navigation.php';
         console.log('Clicked Button');
     }
 
+    // drop down functions...
     $('.dropdown-menu li a').click(function() {
         $(this).text($(this).text());
 
@@ -252,6 +177,7 @@ include 'includes/navigation.php';
         showUser(eventt);
     });
 
+    // search function
     $('#search_btn').click(function() {
         var text = $('#search_txt').val();
         // alert(text);
