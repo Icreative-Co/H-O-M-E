@@ -1,0 +1,20 @@
+#navbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	height: 70px;
+	background: rgba(0, 0, 0, 0.05);
+	/*overflow: hidden;*/
+}
+#navbar .nav-item{
+	display: block;
+	text-align: center;
+    /*padding: 14px 16px;*/
+    text-decoration: none;
+
+
+}
+#navbar .navbar-brand{
+	font-family: Comic Sans Ms;
+}

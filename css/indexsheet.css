@@ -1,0 +1,54 @@
+/*.fluid{
+        background-image: url(/images/back6.jpg);
+         background-repeat: no-repeat;
+         position: relative;
+         padding: 0;
+         margin: 0;
+         background-position:top center;
+         background-attachment: fixed; 
+
+    }
+    body{
+        
+
+    }
+        */
+        #index_form{
+            display: inline-flex;
+        }
+        .fluid{
+        background-image: url(../images/back6.jpg);
+         background-repeat: no-repeat;
+         width: 100%
+         
+
+    }
+     
+    .navicons{
+        font-size: 20;
+    }
+    .eventstext{
+        position: absolute;
+        font-family: Times New Roman;
+        left: 30%;
+
+         bottom: 10%; /* At the bottom. Use top:0 to append it to the top */
+    background: rgba(0, 0, 0, 0.05); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+   /* width: 100%; /* Full width */
+   /* padding: 20px;*/ /* Some padding */
+    }
+    .events{
+        position: relative;
+        height:300px;
+        padding: 15px;
+        margin-top: 50px;
+    }
+    .imgs{
+        
+       height:100%;
+       width: auto; 
+    }
+    #footer{
+        margin-top: 50px;
+    }

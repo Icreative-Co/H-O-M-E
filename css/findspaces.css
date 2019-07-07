@@ -1,0 +1,30 @@
+#filter_nav{
+	margin-top: 70px;
+}
+.dropdown{
+	padding: 20px;
+
+	text-decoration: bold ;
+}
+#vcard{
+	height: 400px;
+	padding: 15px;
+	line-height: 0.8;
+	font-family: Times New Roman;
+	text-decoration: bold;
+}
+
+#vcard img{
+	height:70%;
+	width: 100%;
+	}
+	#vlocation{
+		float: right;
+	}
+	#vname{
+		margin-top: 5px;
+		/*margin-left: 0 auto;*/
+	}
+#events_showing{
+	text-align: right;
+}
